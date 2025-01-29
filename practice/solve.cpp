@@ -23,6 +23,19 @@ ll dp[100006];
 
 
 int main(){
-    
+    string t = "ADVITIYA";
+    int tc;cin>>tc;
+    while(tc--){
+        string q;cin>>q;
+        int ans = 0;
+        for (int i = 0; i < 8; ++i) {
+        int curr = q[i] - 'A';
+        int koto = t[i] - 'A';
+        int diff = (koto - curr + 26) % 26;
+        ans += diff;
+       // cout<<ans<<nl;
+    }
+    cout<<ans<<nl;
+    }
 
 }
