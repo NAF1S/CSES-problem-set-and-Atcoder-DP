@@ -18,24 +18,16 @@ const ll inf = 1e18;
 const ll mod = 1e9 + 7;
 
 const int N = 21;
-ll dp[100006];
+//ll dp[100006];
 
 
 
 int main(){
-    string t = "ADVITIYA";
-    int tc;cin>>tc;
-    while(tc--){
-        string q;cin>>q;
-        int ans = 0;
-        for (int i = 0; i < 8; ++i) {
-        int curr = q[i] - 'A';
-        int koto = t[i] - 'A';
-        int diff = (koto - curr + 26) % 26;
-        ans += diff;
-       // cout<<ans<<nl;
-    }
-    cout<<ans<<nl;
-    }
+   int n;cin>>n;
+   int x;cin>>x;
+   vector<int>a(n);
+   for(int i=0;i<n;i++){
+    cin>>a[i];
+   }
 
 }
