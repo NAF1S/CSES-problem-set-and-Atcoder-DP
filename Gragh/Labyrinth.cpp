@@ -1,12 +1,28 @@
-/*
-Problem Name: Labyrinth
-Problem Link: https://cses.fi/problemset/task/1193/
-Idea: BFS
-Complexity:
-Resource:
-*/
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+#define nl "\n"
+#define ll long long
+#define pb push_back
+#define pi acos(-1)
+#define fi first
+#define se second
+#define lightSpeed() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+int dirx[] = {0, 0, 1, -1};  // Directions: Left, Right, Down, Up
+int diry[] = {-1, 1, 0, 0};
+//char moveChar[] = {'L', 'R', 'D', 'U'};
+
+using namespace __gnu_pbds;
+template<class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+using p = pair<int, int>;
+
+const ll inf = 1e18;
+const ll mod = 1e9 + 7;
+
+
+
 const int N = 1000;
 char Grid[N+1][N+1], parent[N+1][N+1];
 bool vis[N+1][N+1];
@@ -18,8 +34,10 @@ bool inside(int i, int j) {
     return true;
 }
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
   cin >> n >> m;
   for(int i = 0; i < n; i++) {
     for(int j = 0; j < m; j++) {
