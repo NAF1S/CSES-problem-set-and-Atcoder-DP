@@ -25,26 +25,13 @@ int modPow(int a, int b, int m) {
     }
     return ans;
 }
+
 int main(){
-    string s;cin>>s;
-    int sz=s.size();
-    string d="";
-    for(auto x:s){
-        if(x=='a'||x=='b'){
-            d+=x;
-        }
+    int n;cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
     }
-    ll ans = 1;
-    ll cnt = 0;
-    for(int i=0;i<d.size();i++){
-        if(d[i]=='a'){
-            cnt++;
-        }
-        else{
-            cnt = max(1ll,cnt);
-            ans = (ans*cnt)%MOD;
-            cnt=0;
-        }
-    }
-    cout<<ans;
+    int ans= 0 ;
+        
 }

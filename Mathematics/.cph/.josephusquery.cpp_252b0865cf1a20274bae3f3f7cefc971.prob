@@ -1,0 +1,1 @@
+{"name":"Local: josephusquery","url":"c:\\Users\\DELL\\Desktop\\CSES and Atcoder DP\\Mathematics\\josephusquery.cpp","tests":[{"id":1738932807390,"input":"4\n7 1\n7 3\n2 2\n1337 1313","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\DELL\\Desktop\\CSES and Atcoder DP\\Mathematics\\josephusquery.cpp","group":"local","local":true}

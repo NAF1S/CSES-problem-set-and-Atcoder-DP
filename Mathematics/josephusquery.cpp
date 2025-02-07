@@ -26,27 +26,23 @@ ll pow(ll a, ll b, ll m) {
     return ans;
 }
 
-vector<int>adj[100001];
-bool vis[100001];
-vector<ll>vor;
-int n;
+int cnt(int n, int kth) {
+  if(n == 1) {
+    return 1;
+  }
+  if(kth <= (n+1)/2) {
+    if(kth*2 > n)return 1;
+    else return kth*2;
+  }
+  int t_kth = cnt(n/2, kth-(n+1)/2);
+  if(n % 2 == 0)return t_kth*2 - 1;
+  return t_kth*2 + 1;
+}
 
-int main() {
+int main(){
     int t;cin>>t;
     while(t--){
-        cin>>n;
-        vor.resize(n+1);
-        for(int i=1;i<=n;i++){
-            cin>>vor[i];
-        }
-        vector<pair<pair<int,int>,ll>>rasta;
-        for(int i=0;i<n-1;i++){
-            int u,v;cin>>u>>v;
-            adj[u].pb(v);
-            adj[v].pb(u);
-            ll sum = vor[v]+vor[u];
-            rasta.pb({{u,v},sum});
-        }
-        
+        int n,k;cin>>n>>k;
+        cout<<cnt(n,k)<<nl;
     }
 }
