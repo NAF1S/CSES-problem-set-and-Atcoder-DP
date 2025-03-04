@@ -13,40 +13,55 @@ using namespace std;
 using namespace __gnu_pbds;
 template<class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
-const ll inf = 1e18;
-const ll mod = 1e9 + 7;
+const int MAX_N = 1000000;
+vector<int> cnt_div[MAX_N + 1];
+bool isPerfectSquare[MAX_N + 1]; // Explicitly initialized to false
 
-ll pow(ll a, ll b, ll m) {
-    ll ans = 1;
-    while (b) {
-        if (b & 1) ans = (ans * a) % m;
-        a = (a * a) % m;
-        b /= 2;
+void preprocess() {
+    // Mark perfect squares
+    for (int i = 1; i * i <= MAX_N; i++) {
+        isPerfectSquare[i * i] = true;
     }
-    return ans;
+
+    // Precompute divisors
+    for (int i = 1; i <= MAX_N; i++) {
+        for (int j = i; j <= MAX_N; j += i) {
+            cnt_div[j].pb(i);
+        }
+    }
 }
 
-vector<int>adj[100001];
-bool vis[100001];
-vector<ll>vor;
-int n;
-
 int main() {
-    int t;cin>>t;
-    while(t--){
-        cin>>n;
-        vor.resize(n+1);
-        for(int i=1;i<=n;i++){
-            cin>>vor[i];
+    lightSpeed();
+    preprocess();
+
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        unordered_set<int> chk;
+
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+            chk.insert(a[i]);
         }
-        vector<pair<pair<int,int>,ll>>rasta;
-        for(int i=0;i<n-1;i++){
-            int u,v;cin>>u>>v;
-            adj[u].pb(v);
-            adj[v].pb(u);
-            ll sum = vor[v]+vor[u];
-            rasta.pb({{u,v},sum});
+
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int x : cnt_div[a[i]]) {
+                int d = a[i] / x;
+                int p = sqrt(d);
+                
+                // Ensure p is a perfect square without precision issues
+                if (p * p == d) {
+                    if (chk.count(a[i] / d) && chk.count(a[i] / p)) {
+                        ans += 6;
+                    }
+                }
+            }
         }
-        
+        cout << ans << nl;
     }
 }
