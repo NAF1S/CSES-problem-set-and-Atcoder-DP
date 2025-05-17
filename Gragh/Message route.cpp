@@ -26,6 +26,4 @@ const ll dy[] = {1, 0, -1, 0};
 
 int main(){
     
-
-    
 }
