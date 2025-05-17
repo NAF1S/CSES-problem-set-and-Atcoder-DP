@@ -25,6 +25,36 @@ vector<int>t[100001];
 2 3 4
 */
 
-int main(){
-    
+ll lcm(ll a, ll b) {
+    return (a / __gcd(a, b)) * b;
+}
+
+int main() {
+    ll n;
+    cin>>n;
+    int k;cin>>k;
+    vector<ll>p(k);
+    for(int i=0;i<k;i++){
+        cin>>p[i];
+    }
+    ll ans = 0;
+    for(int i=0;i<(1<<k);i++){
+        int cnt = 0;
+        ll mul = n;
+        for(int j=0;j<k;j++){
+            if(i&(1<<j)){
+                mul /= p[j];
+                cnt++;
+            }
+        }
+        //cout<<cnt<<" ";
+        if(cnt == 0)continue;
+        if(cnt&1){
+            ans += mul;
+        }
+        else{
+            ans -= mul;
+        }
+    }
+    cout<<ans<<nl;
 }

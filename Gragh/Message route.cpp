@@ -14,17 +14,18 @@ using namespace __gnu_pbds;
 template<class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 const ll MOD = 998244353;
-const int N = 6e6;
+const int N = 2e5+1;
 // Fixed direction vectors for spiral: right, down, left, up
 const ll dx[] = {0, 1, 0, -1};
 const ll dy[] = {1, 0, -1, 0};
-vector<int>t[100001];
-/*
-8 7 6
-1 0 5
-2 3 4
-*/
+
+ vector<int>adj[100005];
+ vector<int>vis(100005,-1);
+
+
 
 int main(){
+    
+
     
 }

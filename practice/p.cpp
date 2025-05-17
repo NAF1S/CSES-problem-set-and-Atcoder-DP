@@ -2,49 +2,23 @@
 using namespace std;
 using ll = long long;
 #define nl "\n"
+
 #define pb push_back
-#define pi acos(-1)
 #define fi first
 #define se second
-#define lightSpeed() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define fastIO() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 
 template<class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-using p = pair<int, int>;
-const ll INF = 1e18;
-const int MOD = 1e9 + 7;
 
-int modPow(int a, int b, int m) {
-    int ans = 1;
-    while (b) {
-        if (b & 1) ans = (1LL * ans * a) % m;
-        a = (1LL * a * a) % m;
-        b >>= 1;
-    }
-    return ans;
-}
+const ll MOD = 998244353;
+const int N = 2e5+1;
+// Fixed direction vectors for spiral: right, down, left, up
+const ll dx[] = {0, 1, 0, -1};
+const ll dy[] = {1, 0, -1, 0};
+
 int main(){
-    string s;cin>>s;
-    int sz=s.size();
-    string d="";
-    for(auto x:s){
-        if(x=='a'||x=='b'){
-            d+=x;
-        }
-    }
-    ll ans = 1;
-    ll cnt = 0;
-    for(int i=0;i<d.size();i++){
-        if(d[i]=='a'){
-            cnt++;
-        }
-        else{
-            cnt = max(1ll,cnt);
-            ans = (ans*cnt)%MOD;
-            cnt=0;
-        }
-    }
-    cout<<ans;
+   
 }
